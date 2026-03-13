@@ -1,0 +1,424 @@
+# Copyright (C) 2025 Torstein Opperud / Digilove
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Super Duper Easy Migration 1.0.0\n"
+"Report-Msgid-Bugs-To: https://digilove.no\n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: WP-CLI 2.x\n"
+"X-Domain: super-duper-easy-migration\n"
+
+#. Plugin Name of the plugin
+msgid "Super Duper Easy Migration"
+msgstr ""
+
+#. Description of the plugin
+msgid "Migrate a WordPress site to another server via SSH and rsync — directly from the admin panel."
+msgstr ""
+
+#. Author of the plugin
+msgid "Torstein Opperud / Digilove"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "%1$s requires the %2$s PHP function to be enabled. Please contact your hosting provider."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Super Duper Easy Migration"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Migrate Site"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "No access."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Pre-flight check"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Database dump"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "File transfer"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid ".htaccess cleanup"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "wp-config"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Database import"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Search & replace"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Cleanup"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Migrate this WordPress site to another server via SSH and rsync."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "This site (source)"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Path:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "URL:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Database:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Table prefix:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Size:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "SSH tools:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Checking…"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Target server"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "IP / hostname"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "e.g. 192.168.1.100 or server.example.com"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "SSH username"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "username on target server"
+msgstr ""
+
+#: super-duper-easy-migration.php
+#. translators: %s is replaced with the username placeholder in the path
+msgid "Home directory: %s"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "SSH password"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "password"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Test connection"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "App name"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "folder name under webapps/"
+msgstr ""
+
+#: super-duper-easy-migration.php
+#. translators: %s is the path template
+msgid "Target path: %s"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Database info (manual)"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "wp-config.php was not found on the target server."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Please fill in the database details manually. You can find these in the control panel (e.g. RunCloud, cPanel or Plesk) for the target server account."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "DB name"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "database name"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "DB user"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "database user"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "DB password"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "DB host"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Usually localhost or 127.0.0.1"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Table prefix"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Usually wp_"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Target URL"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "The URL of the site on the target server"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Start migration"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Migration in progress"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Cancel"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Starting…"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Log"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Migration complete!"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "New migration"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Migration failed"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Back to form"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "✓ sshpass is available"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "⚠ sshpass not found, but an SSH key was found. You may use key-based authentication."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "✗ sshpass is not installed. Install it with: sudo apt install sshpass"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "IP/hostname, username and password are required."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "sshpass is not installed on this server."
+msgstr ""
+
+#: super-duper-easy-migration.php
+#. translators: %s: error output from SSH
+msgid "SSH connection failed: %s"
+msgstr ""
+
+#: super-duper-easy-migration.php
+#. translators: %s: target path
+msgid "✓ Target folder found: %s"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "(wp-config.php found)"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "⚠ wp-config.php not found — fill in database details below."
+msgstr ""
+
+#: super-duper-easy-migration.php
+#. translators: %s: target path
+msgid "✗ Target folder not found: %s"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "SSH connection OK! WP-CLI found."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "SSH connection OK! ⚠ WP-CLI not found — mysql/PHP fallback will be used."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "A migration is already running."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "All fields are required."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "App name may only contain letters, numbers, hyphens and underscores."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "No active job found."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Progress file not found."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Could not read progress file."
+msgstr ""
+
+#. JS i18n strings passed via wp_localize_script
+#: super-duper-easy-migration.php
+msgid "Testing…"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Cancelling…"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Network error — please try again."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Are you sure you want to start the migration? This will overwrite the target site."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Are you sure you want to cancel the running migration?"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Elapsed:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "complete"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Error:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Please fill in DB name and DB user under \"Database info (manual)\"."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Please fill in the target URL under \"Database info (manual)\"."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Pending"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Running…"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Completed"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Skipped"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Failed"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Back"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Open new site ↗"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "WP Admin ↗"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Unknown error."
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgid "Target path:"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgctxt "hour abbreviation"
+msgid "h"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgctxt "minute abbreviation"
+msgid "m"
+msgstr ""
+
+#: super-duper-easy-migration.php
+msgctxt "second abbreviation"
+msgid "s"
+msgstr ""

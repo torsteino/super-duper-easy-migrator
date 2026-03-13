@@ -1,0 +1,306 @@
+/* ==========================================================================
+   WP Site Migrator – Admin Styles
+   ========================================================================== */
+
+.wsm-wrap {
+	max-width: 780px;
+}
+
+.wsm-subtitle {
+	color: #646970;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+/* ---------- Cards ---------- */
+
+.wsm-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 20px 24px;
+	margin-bottom: 20px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.wsm-card h2 {
+	margin: 0 0 12px;
+	padding: 0;
+	font-size: 15px;
+}
+
+.wsm-card h3 {
+	margin: 0 0 10px;
+	font-size: 14px;
+}
+
+/* ---------- IP badge ---------- */
+
+.wsm-ip-badge {
+	display: inline-block;
+	background: #f0f0f1;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+	padding: 1px 8px;
+	font-size: 12px;
+	font-family: Consolas, Monaco, monospace;
+	font-weight: 400;
+	color: #50575e;
+	vertical-align: middle;
+	margin-left: 6px;
+}
+
+/* ---------- Source info table ---------- */
+
+.wsm-info-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.wsm-info-table td {
+	padding: 6px 0;
+	font-size: 13px;
+	border-bottom: 1px solid #f0f0f1;
+	vertical-align: top;
+}
+
+.wsm-info-table tr:last-child td {
+	border-bottom: none;
+}
+
+.wsm-info-label {
+	color: #646970;
+	width: 110px;
+	font-weight: 500;
+}
+
+.wsm-info-table code {
+	background: #f6f7f7;
+	padding: 1px 5px;
+	border-radius: 3px;
+	font-size: 12px;
+}
+
+/* ---------- Inline rows ---------- */
+
+.wsm-inline-row {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+/* ---------- Status colours ---------- */
+
+.wsm-ok   { color: #00a32a; }
+.wsm-warn { color: #dba617; }
+.wsm-fail { color: #d63638; }
+
+#wsm-conn-status {
+	margin-top: 6px;
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+/* ---------- Actions ---------- */
+
+.wsm-actions {
+	margin: 24px 0 20px;
+}
+
+/* ---------- Progress ---------- */
+
+.wsm-progress-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 4px;
+}
+
+.wsm-progress-bar {
+	background: #dcdcde;
+	border-radius: 4px;
+	height: 22px;
+	overflow: hidden;
+}
+
+.wsm-progress-fill {
+	background: linear-gradient(90deg, #2271b1, #3582c4);
+	height: 100%;
+	border-radius: 4px;
+	transition: width .6s ease;
+	min-width: 0;
+}
+
+.wsm-progress-meta {
+	display: flex;
+	justify-content: space-between;
+	font-size: 13px;
+	color: #646970;
+	margin-top: 6px;
+}
+
+/* ---------- Steps grid ---------- */
+
+.wsm-steps-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 18px;
+}
+
+.wsm-step {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 13px;
+	padding: 6px 12px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	white-space: nowrap;
+	transition: border-color .2s, background .2s;
+}
+
+.wsm-step.wsm-step-active {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+.wsm-step-icon {
+	font-size: 14px;
+	width: 16px;
+	text-align: center;
+	flex-shrink: 0;
+}
+
+.wsm-step-label {
+	font-weight: 500;
+}
+
+.wsm-step-pending   { color: #a7aaad; }
+.wsm-step-running   { color: #2271b1; animation: wsm-pulse 1.2s ease-in-out infinite; }
+.wsm-step-completed { color: #00a32a; font-weight: 700; }
+.wsm-step-failed    { color: #d63638; font-weight: 700; }
+
+.wsm-step-msg {
+	color: #646970;
+	font-size: 11px;
+	margin-left: 2px;
+	max-width: 140px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@keyframes wsm-pulse {
+	0%, 100% { opacity: 1; }
+	50%      { opacity: .35; }
+}
+
+/* ---------- Log ---------- */
+
+#wsm-log {
+	background: #1d2327;
+	color: #c3c4c7;
+	font-family: Consolas, Monaco, monospace;
+	font-size: 12px;
+	line-height: 1.7;
+	padding: 14px 16px;
+	border-radius: 4px;
+	max-height: 320px;
+	overflow-y: auto;
+}
+
+#wsm-log:empty::before {
+	content: 'Waiting for log messages...';
+	color: #646970;
+	font-style: italic;
+}
+
+.wsm-log-entry {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.wsm-log-time {
+	color: #8c8f94;
+}
+
+.wsm-log-info    .wsm-log-msg { color: #c3c4c7; }
+.wsm-log-success .wsm-log-msg { color: #68de7c; }
+.wsm-log-warning .wsm-log-msg { color: #f0c33c; }
+.wsm-log-error   .wsm-log-msg { color: #f86368; }
+
+/* ---------- Completion / Error ---------- */
+
+.wsm-status-card {
+	text-align: center;
+	padding: 40px 24px;
+}
+
+.wsm-status-icon {
+	font-size: 52px;
+	line-height: 1;
+	margin-bottom: 8px;
+}
+
+.wsm-status-success .wsm-status-icon { color: #00a32a; }
+.wsm-status-error   .wsm-status-icon { color: #d63638; }
+
+.wsm-status-card h2 {
+	font-size: 20px;
+	margin-bottom: 12px;
+}
+
+#wsm-completion-summary {
+	font-size: 14px;
+	color: #50575e;
+	margin-bottom: 16px;
+}
+
+#wsm-completion-summary code {
+	background: #f0f0f1;
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-size: 12px;
+}
+
+.wsm-completion-links {
+	margin-top: 16px;
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+}
+
+.wsm-completion-links .button {
+	text-decoration: none;
+}
+
+#wsm-error-message {
+	background: #fcf0f1;
+	border: 1px solid #d63638;
+	border-radius: 4px;
+	padding: 12px 16px;
+	margin: 16px auto;
+	max-width: 520px;
+	text-align: left;
+	font-size: 13px;
+	color: #50575e;
+}
+
+/* ---------- Responsive ---------- */
+
+@media screen and (max-width: 782px) {
+	.wsm-inline-row {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.wsm-steps-grid {
+		gap: 5px;
+	}
+
+	.wsm-step {
+		font-size: 12px;
+		padding: 4px 8px;
+	}
+}

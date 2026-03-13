@@ -1,0 +1,414 @@
+# Norwegian Bokmål translation for Super Duper Easy Migration
+# Copyright (C) 2025 Torstein Opperud / Digilove
+# This file is distributed under the GPL v2 or later.
+# Torstein Opperud <post@digilove.no>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Super Duper Easy Migration 1.0.0\n"
+"Report-Msgid-Bugs-To: https://digilove.no\n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: Torstein Opperud <post@digilove.no>\n"
+"Language-Team: Norwegian Bokmål <nb@li.org>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+"X-Domain: super-duper-easy-migration\n"
+
+#. Plugin Name of the plugin
+msgid "Super Duper Easy Migration"
+msgstr "Super Duper Easy Migration"
+
+#. Description of the plugin
+msgid "Migrate a WordPress site to another server via SSH and rsync — directly from the admin panel."
+msgstr "Migrer et WordPress-nettsted til en annen server via SSH og rsync – direkte fra adminpanelet."
+
+#: super-duper-easy-migration.php
+msgid "%1$s requires the %2$s PHP function to be enabled. Please contact your hosting provider."
+msgstr "%1$s krever at PHP-funksjonen %2$s er aktivert. Kontakt hostingleverandøren din."
+
+#: super-duper-easy-migration.php
+msgid "Migrate Site"
+msgstr "Migrer nettsted"
+
+#: super-duper-easy-migration.php
+msgid "No access."
+msgstr "Ingen tilgang."
+
+#: super-duper-easy-migration.php
+msgid "Pre-flight check"
+msgstr "Forhåndssjekk"
+
+#: super-duper-easy-migration.php
+msgid "Database dump"
+msgstr "Database-dump"
+
+#: super-duper-easy-migration.php
+msgid "File transfer"
+msgstr "Filoverføring"
+
+#: super-duper-easy-migration.php
+msgid ".htaccess cleanup"
+msgstr ".htaccess-opprydding"
+
+#: super-duper-easy-migration.php
+msgid "wp-config"
+msgstr "wp-config"
+
+#: super-duper-easy-migration.php
+msgid "Database import"
+msgstr "Database-import"
+
+#: super-duper-easy-migration.php
+msgid "Search & replace"
+msgstr "Søk og erstatt"
+
+#: super-duper-easy-migration.php
+msgid "Cleanup"
+msgstr "Opprydding"
+
+#: super-duper-easy-migration.php
+msgid "Migrate this WordPress site to another server via SSH and rsync."
+msgstr "Migrer dette WordPress-nettstedet til en annen server via SSH og rsync."
+
+#: super-duper-easy-migration.php
+msgid "This site (source)"
+msgstr "Denne siden (kilde)"
+
+#: super-duper-easy-migration.php
+msgid "Path:"
+msgstr "Sti:"
+
+#: super-duper-easy-migration.php
+msgid "URL:"
+msgstr "URL:"
+
+#: super-duper-easy-migration.php
+msgid "Database:"
+msgstr "Database:"
+
+#: super-duper-easy-migration.php
+msgid "Table prefix:"
+msgstr "Tabellprefiks:"
+
+#: super-duper-easy-migration.php
+msgid "Size:"
+msgstr "Størrelse:"
+
+#: super-duper-easy-migration.php
+msgid "SSH tools:"
+msgstr "SSH-verktøy:"
+
+#: super-duper-easy-migration.php
+msgid "Checking…"
+msgstr "Sjekker…"
+
+#: super-duper-easy-migration.php
+msgid "Target server"
+msgstr "Målserver"
+
+#: super-duper-easy-migration.php
+msgid "IP / hostname"
+msgstr "IP / vertsnavn"
+
+#: super-duper-easy-migration.php
+msgid "e.g. 192.168.1.100 or server.example.com"
+msgstr "f.eks. 192.168.1.100 eller server.eksempel.no"
+
+#: super-duper-easy-migration.php
+msgid "SSH username"
+msgstr "SSH-brukernavn"
+
+#: super-duper-easy-migration.php
+msgid "username on target server"
+msgstr "brukernavn på målserveren"
+
+#: super-duper-easy-migration.php
+msgid "Home directory: %s"
+msgstr "Hjemmemappe: %s"
+
+#: super-duper-easy-migration.php
+msgid "SSH password"
+msgstr "SSH-passord"
+
+#: super-duper-easy-migration.php
+msgid "password"
+msgstr "passord"
+
+#: super-duper-easy-migration.php
+msgid "Test connection"
+msgstr "Test tilkobling"
+
+#: super-duper-easy-migration.php
+msgid "App name"
+msgstr "Appnavn"
+
+#: super-duper-easy-migration.php
+msgid "folder name under webapps/"
+msgstr "mappenavn under webapps/"
+
+#: super-duper-easy-migration.php
+msgid "Target path: %s"
+msgstr "Målsti: %s"
+
+#: super-duper-easy-migration.php
+msgid "Database info (manual)"
+msgstr "Databaseinfo (manuell)"
+
+#: super-duper-easy-migration.php
+msgid "wp-config.php was not found on the target server."
+msgstr "wp-config.php ble ikke funnet på målserveren."
+
+#: super-duper-easy-migration.php
+msgid "Please fill in the database details manually. You can find these in the control panel (e.g. RunCloud, cPanel or Plesk) for the target server account."
+msgstr "Fyll inn databaseopplysningene manuelt. Disse finner du i kontrollpanelet (f.eks. RunCloud, cPanel eller Plesk) for brukerens konto på målserveren."
+
+#: super-duper-easy-migration.php
+msgid "DB name"
+msgstr "DB-navn"
+
+#: super-duper-easy-migration.php
+msgid "database name"
+msgstr "databasenavn"
+
+#: super-duper-easy-migration.php
+msgid "DB user"
+msgstr "DB-bruker"
+
+#: super-duper-easy-migration.php
+msgid "database user"
+msgstr "databasebruker"
+
+#: super-duper-easy-migration.php
+msgid "DB password"
+msgstr "DB-passord"
+
+#: super-duper-easy-migration.php
+msgid "DB host"
+msgstr "DB-vert"
+
+#: super-duper-easy-migration.php
+msgid "Usually localhost or 127.0.0.1"
+msgstr "Vanligvis localhost eller 127.0.0.1"
+
+#: super-duper-easy-migration.php
+msgid "Table prefix"
+msgstr "Tabellprefiks"
+
+#: super-duper-easy-migration.php
+msgid "Usually wp_"
+msgstr "Vanligvis wp_"
+
+#: super-duper-easy-migration.php
+msgid "Target URL"
+msgstr "Mål-URL"
+
+#: super-duper-easy-migration.php
+msgid "The URL of the site on the target server"
+msgstr "Den nye sidens URL på målserveren"
+
+#: super-duper-easy-migration.php
+msgid "Start migration"
+msgstr "Start migrering"
+
+#: super-duper-easy-migration.php
+msgid "Migration in progress"
+msgstr "Migrering pågår"
+
+#: super-duper-easy-migration.php
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: super-duper-easy-migration.php
+msgid "Starting…"
+msgstr "Starter…"
+
+#: super-duper-easy-migration.php
+msgid "Log"
+msgstr "Logg"
+
+#: super-duper-easy-migration.php
+msgid "Migration complete!"
+msgstr "Migrering fullført!"
+
+#: super-duper-easy-migration.php
+msgid "New migration"
+msgstr "Ny migrering"
+
+#: super-duper-easy-migration.php
+msgid "Migration failed"
+msgstr "Migrering feilet"
+
+#: super-duper-easy-migration.php
+msgid "Back to form"
+msgstr "Tilbake til skjema"
+
+#: super-duper-easy-migration.php
+msgid "✓ sshpass is available"
+msgstr "✓ sshpass er tilgjengelig"
+
+#: super-duper-easy-migration.php
+msgid "⚠ sshpass not found, but an SSH key was found. You may use key-based authentication."
+msgstr "⚠ sshpass mangler, men SSH-nøkkel funnet. Du kan bruke nøkkelbasert autentisering."
+
+#: super-duper-easy-migration.php
+msgid "✗ sshpass is not installed. Install it with: sudo apt install sshpass"
+msgstr "✗ sshpass er ikke installert. Installer med: sudo apt install sshpass"
+
+#: super-duper-easy-migration.php
+msgid "IP/hostname, username and password are required."
+msgstr "IP/vertsnavn, brukernavn og passord er påkrevd."
+
+#: super-duper-easy-migration.php
+msgid "sshpass is not installed on this server."
+msgstr "sshpass er ikke installert på denne serveren."
+
+#: super-duper-easy-migration.php
+msgid "SSH connection failed: %s"
+msgstr "SSH-tilkobling feilet: %s"
+
+#: super-duper-easy-migration.php
+msgid "✓ Target folder found: %s"
+msgstr "✓ Målmappen funnet: %s"
+
+#: super-duper-easy-migration.php
+msgid "(wp-config.php found)"
+msgstr "(wp-config.php funnet)"
+
+#: super-duper-easy-migration.php
+msgid "⚠ wp-config.php not found — fill in database details below."
+msgstr "⚠ wp-config.php ikke funnet – fyll inn databaseinfo nedenfor."
+
+#: super-duper-easy-migration.php
+msgid "✗ Target folder not found: %s"
+msgstr "✗ Målmappen finnes ikke: %s"
+
+#: super-duper-easy-migration.php
+msgid "SSH connection OK! WP-CLI found."
+msgstr "SSH-tilkobling OK! WP-CLI funnet."
+
+#: super-duper-easy-migration.php
+msgid "SSH connection OK! ⚠ WP-CLI not found — mysql/PHP fallback will be used."
+msgstr "SSH-tilkobling OK! ⚠ WP-CLI ikke funnet – mysql/PHP-fallback vil bli brukt."
+
+#: super-duper-easy-migration.php
+msgid "A migration is already running."
+msgstr "En migrering er allerede aktiv."
+
+#: super-duper-easy-migration.php
+msgid "All fields are required."
+msgstr "Alle felt må fylles ut."
+
+#: super-duper-easy-migration.php
+msgid "App name may only contain letters, numbers, hyphens and underscores."
+msgstr "Appnavn kan bare inneholde bokstaver, tall, bindestrek og understrek."
+
+#: super-duper-easy-migration.php
+msgid "No active job found."
+msgstr "Ingen aktiv jobb funnet."
+
+#: super-duper-easy-migration.php
+msgid "Progress file not found."
+msgstr "Fremdriftsfil ikke funnet."
+
+#: super-duper-easy-migration.php
+msgid "Could not read progress file."
+msgstr "Kunne ikke lese fremdriftsfilen."
+
+#: super-duper-easy-migration.php
+msgid "Testing…"
+msgstr "Tester…"
+
+#: super-duper-easy-migration.php
+msgid "Cancelling…"
+msgstr "Avbryter…"
+
+#: super-duper-easy-migration.php
+msgid "Network error — please try again."
+msgstr "Nettverksfeil – prøv igjen."
+
+#: super-duper-easy-migration.php
+msgid "Are you sure you want to start the migration? This will overwrite the target site."
+msgstr "Er du sikker på at du vil starte migreringen? Dette vil overskrive målnettstedet."
+
+#: super-duper-easy-migration.php
+msgid "Are you sure you want to cancel the running migration?"
+msgstr "Er du sikker på at du vil avbryte migreringen?"
+
+#: super-duper-easy-migration.php
+msgid "Elapsed:"
+msgstr "Tid:"
+
+#: super-duper-easy-migration.php
+msgid "complete"
+msgstr "fullført"
+
+#: super-duper-easy-migration.php
+msgid "Error:"
+msgstr "Feil:"
+
+#: super-duper-easy-migration.php
+msgid "Please fill in DB name and DB user under \"Database info (manual)\"."
+msgstr "Fyll inn DB-navn og DB-bruker under «Databaseinfo (manuell)»."
+
+#: super-duper-easy-migration.php
+msgid "Please fill in the target URL under \"Database info (manual)\"."
+msgstr "Fyll inn mål-URL under «Databaseinfo (manuell)»."
+
+#: super-duper-easy-migration.php
+msgid "Pending"
+msgstr "Venter"
+
+#: super-duper-easy-migration.php
+msgid "Running…"
+msgstr "Kjører…"
+
+#: super-duper-easy-migration.php
+msgid "Completed"
+msgstr "Fullført"
+
+#: super-duper-easy-migration.php
+msgid "Skipped"
+msgstr "Hoppet over"
+
+#: super-duper-easy-migration.php
+msgid "Failed"
+msgstr "Feilet"
+
+#: super-duper-easy-migration.php
+msgid "Back"
+msgstr "Tilbake"
+
+#: super-duper-easy-migration.php
+msgid "Open new site ↗"
+msgstr "Åpne nytt nettsted ↗"
+
+#: super-duper-easy-migration.php
+msgid "WP Admin ↗"
+msgstr "WP-admin ↗"
+
+#: super-duper-easy-migration.php
+msgid "Unknown error."
+msgstr "Ukjent feil."
+
+#: super-duper-easy-migration.php
+msgid "Target path:"
+msgstr "Målsti:"
+
+#: super-duper-easy-migration.php
+msgctxt "hour abbreviation"
+msgid "h"
+msgstr "t"
+
+#: super-duper-easy-migration.php
+msgctxt "minute abbreviation"
+msgid "m"
+msgstr "m"
+
+#: super-duper-easy-migration.php
+msgctxt "second abbreviation"
+msgid "s"
+msgstr "s"
