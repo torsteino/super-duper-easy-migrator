@@ -1,18 +1,18 @@
 <?php
 /**
  * Plugin Name:       Super Duper Easy Migration
- * Plugin URI:        https://github.com/torstein-digilove/super-duper-easy-migration
+ * Plugin URI:        https://github.com/torsteino/super-duper-easy-migration
  * Description:       Migrate a WordPress site to another server via SSH and rsync — directly from the admin panel.
  * Version:           1.0.0
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Author:            Torstein Opperud / Digilove
- * Author URI:        https://digilove.no
+ * Author URI:        https://digilove.no/plugins/super-duper-easy-migration/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       super-duper-easy-migration
  * Domain Path:       /languages
- * Update URI:        https://github.com/torsteino/super-duper-easy-migration
+ * Update URI:        https://github.com/torstein-digilove/super-duper-easy-migration
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -225,7 +225,12 @@ class Super_Duper_Easy_Migration {
 				'open_site'           => __( 'Open new site ↗', 'super-duper-easy-migration' ),
 				'wp_admin'            => __( 'WP Admin ↗', 'super-duper-easy-migration' ),
 				'unknown_error'       => __( 'Unknown error.', 'super-duper-easy-migration' ),
-				'target_path_label'   => __( 'Target path:', 'super-duper-easy-migration' ),
+				'select_folder'       => __( 'Select folder', 'super-duper-easy-migration' ),
+				'no_folders_found'    => __( 'No standard web folders found. Enter a path manually.', 'super-duper-easy-migration' ),
+				'wp_found'            => __( 'WordPress found', 'super-duper-easy-migration' ),
+				'enter_path'          => __( 'Enter path manually', 'super-duper-easy-migration' ),
+				'fill_target_path'    => __( 'Please select or enter a target folder.', 'super-duper-easy-migration' ),
+				'invalid_target_path' => __( 'Invalid target path.', 'super-duper-easy-migration' ),
 				'hour_abbr'           => _x( 'h', 'hour abbreviation', 'super-duper-easy-migration' ),
 				'min_abbr'            => _x( 'm', 'minute abbreviation', 'super-duper-easy-migration' ),
 				'sec_abbr'            => _x( 's', 'second abbreviation', 'super-duper-easy-migration' ),
@@ -305,14 +310,14 @@ class Super_Duper_Easy_Migration {
 							<th scope="row"><label for="wsm-host"><?php esc_html_e( 'IP / hostname', 'super-duper-easy-migration' ); ?></label></th>
 							<td>
 								<input type="text" id="wsm-host" class="regular-text"
-								       placeholder="<?php esc_attr_e( 'e.g. 192.168.1.100 or server.example.com', 'super-duper-easy-migration' ); ?>">
+									   placeholder="<?php esc_attr_e( 'e.g. 192.168.1.100 or server.example.com', 'super-duper-easy-migration' ); ?>">
 							</td>
 						</tr>
 						<tr>
 							<th scope="row"><label for="wsm-user"><?php esc_html_e( 'SSH username', 'super-duper-easy-migration' ); ?></label></th>
 							<td>
 								<input type="text" id="wsm-user" class="regular-text"
-								       placeholder="<?php esc_attr_e( 'username on target server', 'super-duper-easy-migration' ); ?>">
+									   placeholder="<?php esc_attr_e( 'username on target server', 'super-duper-easy-migration' ); ?>">
 								<p class="description">
 									<?php
 									printf(
@@ -329,7 +334,7 @@ class Super_Duper_Easy_Migration {
 							<td>
 								<div class="wsm-inline-row">
 									<input type="password" id="wsm-pass" class="regular-text"
-									       placeholder="<?php esc_attr_e( 'password', 'super-duper-easy-migration' ); ?>">
+										   placeholder="<?php esc_attr_e( 'password', 'super-duper-easy-migration' ); ?>">
 									<button type="button" id="wsm-test-conn" class="button">
 										<?php esc_html_e( 'Test connection', 'super-duper-easy-migration' ); ?>
 									</button>
@@ -337,23 +342,24 @@ class Super_Duper_Easy_Migration {
 								<div id="wsm-conn-status"></div>
 							</td>
 						</tr>
-						<tr>
-							<th scope="row"><label for="wsm-app"><?php esc_html_e( 'App name', 'super-duper-easy-migration' ); ?></label></th>
-							<td>
-								<input type="text" id="wsm-app" class="regular-text"
-								       placeholder="<?php esc_attr_e( 'folder name under webapps/', 'super-duper-easy-migration' ); ?>">
-								<p class="description" id="wsm-target-path-preview">
-									<?php
-									printf(
-										/* translators: %s is the path template */
-										esc_html__( 'Target path: %s', 'super-duper-easy-migration' ),
-										'<code>/home/&lt;username&gt;/webapps/<strong>&lt;appname&gt;</strong>/</code>'
-									);
-									?>
-								</p>
-							</td>
-						</tr>
 					</table>
+				</div>
+
+				<!-- Target folder picker (shown after successful connection test) -->
+				<div id="wsm-path-card" class="wsm-card" style="display:none">
+					<h2><?php esc_html_e( 'Target folder', 'super-duper-easy-migration' ); ?></h2>
+					<p class="description" style="margin-bottom:12px">
+						<?php esc_html_e( 'Select the folder on the target server where WordPress should be installed.', 'super-duper-easy-migration' ); ?>
+					</p>
+					<div id="wsm-path-options"></div>
+					<div id="wsm-custom-path-row" style="display:none;margin-top:10px">
+						<label for="wsm-custom-path" style="display:block;margin-bottom:4px">
+							<strong><?php esc_html_e( 'Path:', 'super-duper-easy-migration' ); ?></strong>
+						</label>
+						<input type="text" id="wsm-custom-path" class="regular-text"
+							   placeholder="/home/username/public_html">
+						<p class="description"><?php esc_html_e( 'The folder will be created if it does not exist.', 'super-duper-easy-migration' ); ?></p>
+					</div>
 				</div>
 
 				<!-- Manual DB card (shown when wp-config.php is missing on target) -->
@@ -402,7 +408,7 @@ class Super_Duper_Easy_Migration {
 
 				<div class="wsm-actions">
 					<button type="button" id="wsm-start"
-					        class="button button-primary button-hero" disabled>
+							class="button button-primary button-hero" disabled>
 						<?php esc_html_e( 'Start migration', 'super-duper-easy-migration' ); ?>
 					</button>
 				</div>
@@ -496,9 +502,7 @@ class Super_Duper_Easy_Migration {
 		];
 	}
 
-	public static function build_target_path( string $user, string $app ): string {
-		return '/home/' . $user . '/webapps/' . $app . '/';
-	}
+
 
 
 	/* ================================================================== */
@@ -562,7 +566,6 @@ class Super_Duper_Easy_Migration {
 		$host = sanitize_text_field( $_POST['host'] ?? '' );
 		$user = sanitize_text_field( $_POST['user'] ?? '' );
 		$pass = $_POST['pass'] ?? '';
-		$app  = sanitize_text_field( $_POST['app']  ?? '' );
 
 		if ( empty( $host ) || empty( $user ) || empty( $pass ) ) {
 			wp_send_json_error( __( 'IP/hostname, username and password are required.', 'super-duper-easy-migration' ) );
@@ -580,6 +583,7 @@ class Super_Duper_Easy_Migration {
 			escapeshellarg( $host )
 		);
 
+		// Basic connectivity check
 		$out = [];
 		exec( $ssh_base . ' "echo SDEM_OK" 2>&1', $out, $rc );
 		$result = trim( implode( "\n", $out ) );
@@ -594,48 +598,80 @@ class Super_Duper_Easy_Migration {
 			);
 		}
 
-		// Check WP-CLI on target
+		// Check WP-CLI
 		$wpcli_out = [];
 		exec( $ssh_base . ' "wp --version 2>&1" 2>&1', $wpcli_out );
 		$has_wpcli = strpos( implode( '', $wpcli_out ), 'WP-CLI' ) !== false;
 
-		// Check app folder and wp-config.php
-		$target_info  = '';
-		$has_wpconfig = false;
+		// Scan for common web roots on target
+		$scan_cmd = <<<'BASH'
+sh -c '
+h=$HOME
+out=""
+for d in public_html www html htdocs web; do
+  if [ -d "$h/$d" ]; then
+	wp=$([ -f "$h/$d/wp-config.php" ] && echo 1 || echo 0)
+	out="${out}PATH:$h/$d:$wp\n"
+  fi
+done
+if [ -d "$h/webapps" ]; then
+  for p in "$h/webapps"/*/; do
+	p="${p%/}"
+	[ -d "$p" ] || continue
+	wp=$([ -f "$p/wp-config.php" ] && echo 1 || echo 0)
+	out="${out}PATH:$p:$wp\n"
+  done
+fi
+if [ -d "$h/domains" ]; then
+  for dom in "$h/domains"/*/; do
+	p="${dom%/}/public_html"
+	[ -d "$p" ] || continue
+	wp=$([ -f "$p/wp-config.php" ] && echo 1 || echo 0)
+	out="${out}PATH:$p:$wp\n"
+  done
+fi
+printf "%b" "$out"
+echo "HOME:$h"
+'
+BASH;
 
-		if ( ! empty( $app ) ) {
-			$target_path = self::build_target_path( $user, $app );
-			$app_check   = [];
-			exec(
-				$ssh_base . ' ' . escapeshellarg( 'test -d ' . $target_path . ' && echo SDEM_APP_EXISTS || echo SDEM_APP_MISSING' ) . ' 2>&1',
-				$app_check
-			);
-			$app_result = trim( implode( '', $app_check ) );
+		$scan_out = [];
+		exec( $ssh_base . ' ' . escapeshellarg( 'sh -c '
+h=$HOME
+for d in public_html www html htdocs web; do
+  [ -d "$h/$d" ] && printf "PATH:%s:%s\n" "$h/$d" "$([ -f "$h/$d/wp-config.php" ] && echo 1 || echo 0)"
+done
+if [ -d "$h/webapps" ]; then
+  for p in "$h"/webapps/*/; do p="${p%/}"; [ -d "$p" ] && printf "PATH:%s:%s\n" "$p" "$([ -f "$p/wp-config.php" ] && echo 1 || echo 0)"; done
+fi
+if [ -d "$h/domains" ]; then
+  for dom in "$h"/domains/*/; do p="${dom%/}/public_html"; [ -d "$p" ] && printf "PATH:%s:%s\n" "$p" "$([ -f "$p/wp-config.php" ] && echo 1 || echo 0)"; done
+fi
+echo "HOME:$h"
+'' ) . ' 2>/dev/null', $scan_out );
 
-			if ( strpos( $app_result, 'SDEM_APP_EXISTS' ) !== false ) {
-				$wpconfig_check = [];
-				exec(
-					$ssh_base . ' ' . escapeshellarg( 'test -f ' . $target_path . 'wp-config.php && echo SDEM_WPCONFIG_OK || echo SDEM_WPCONFIG_MISSING' ) . ' 2>&1',
-					$wpconfig_check
-				);
-				$has_wpconfig = strpos( implode( '', $wpconfig_check ), 'SDEM_WPCONFIG_OK' ) !== false;
+		$detected_paths = [];
+		$home_dir       = '';
 
-				$target_info = sprintf(
-					/* translators: %s: target path */
-					__( '✓ Target folder found: %s', 'super-duper-easy-migration' ),
-					$target_path
-				);
-				if ( $has_wpconfig ) {
-					$target_info .= ' ' . __( '(wp-config.php found)', 'super-duper-easy-migration' );
-				} else {
-					$target_info .= ' ' . __( '⚠ wp-config.php not found — fill in database details below.', 'super-duper-easy-migration' );
+		foreach ( $scan_out as $line ) {
+			$line = trim( $line );
+			if ( strpos( $line, 'PATH:' ) === 0 ) {
+				$parts = explode( ':', ltrim( $line, 'PATH:' ), 3 );
+				// explode on PATH: gives us the remainder, re-split on colon
+				$segments = explode( ':', substr( $line, 5 ) );
+				if ( count( $segments ) >= 2 ) {
+					// path may contain colons, so everything except last segment is the path
+					$has_wp  = (int) array_pop( $segments );
+					$path    = implode( ':', $segments );
+					$path    = rtrim( $path, '/' ) . '/';
+					$detected_paths[] = [
+						'path'   => $path,
+						'has_wp' => (bool) $has_wp,
+						'label'  => basename( rtrim( $path, '/' ) ),
+					];
 				}
-			} else {
-				$target_info = sprintf(
-					/* translators: %s: target path */
-					__( '✗ Target folder not found: %s', 'super-duper-easy-migration' ),
-					$target_path
-				);
+			} elseif ( strpos( $line, 'HOME:' ) === 0 ) {
+				$home_dir = rtrim( substr( $line, 5 ), '/' ) . '/';
 			}
 		}
 
@@ -646,10 +682,10 @@ class Super_Duper_Easy_Migration {
 		}
 
 		wp_send_json_success( [
-			'message'      => $msg,
-			'has_wpcli'    => $has_wpcli,
-			'has_wpconfig' => $has_wpconfig,
-			'target_info'  => $target_info,
+			'message'         => $msg,
+			'has_wpcli'       => $has_wpcli,
+			'detected_paths'  => $detected_paths,
+			'home_dir'        => $home_dir,
 		] );
 	}
 
@@ -668,19 +704,49 @@ class Super_Duper_Easy_Migration {
 			wp_send_json_error( __( 'A migration is already running.', 'super-duper-easy-migration' ) );
 		}
 
-		$host = sanitize_text_field( $_POST['host'] ?? '' );
-		$user = sanitize_text_field( $_POST['user'] ?? '' );
-		$pass = $_POST['pass'] ?? '';
-		$app  = sanitize_text_field( $_POST['app']  ?? '' );
+		$host        = sanitize_text_field( $_POST['host']        ?? '' );
+		$user        = sanitize_text_field( $_POST['user']        ?? '' );
+		$pass        = $_POST['pass']                             ?? '';
+		$target_path = sanitize_text_field( $_POST['target_path'] ?? '' );
 
-		if ( empty( $host ) || empty( $user ) || empty( $pass ) || empty( $app ) ) {
+		if ( empty( $host ) || empty( $user ) || empty( $pass ) || empty( $target_path ) ) {
 			wp_send_json_error( __( 'All fields are required.', 'super-duper-easy-migration' ) );
 		}
-		if ( ! preg_match( '/^[a-zA-Z0-9_-]+$/', $app ) ) {
-			wp_send_json_error( __( 'App name may only contain letters, numbers, hyphens and underscores.', 'super-duper-easy-migration' ) );
+
+		// Basic path sanity check — must be absolute, no traversal
+		if ( strpos( $target_path, '..' ) !== false || $target_path[0] !== '/' ) {
+			wp_send_json_error( __( 'Invalid target path.', 'super-duper-easy-migration' ) );
 		}
 
-		// Optional manual DB fields (used when target has no wp-config.php or WP-CLI)
+		$target_path = rtrim( $target_path, '/' ) . '/';
+
+		// Create target directory if it does not exist
+		$ssh_base = sprintf(
+			'sshpass -p %s ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 %s@%s',
+			escapeshellarg( $pass ),
+			escapeshellarg( $user ),
+			escapeshellarg( $host )
+		);
+		exec( $ssh_base . ' ' . escapeshellarg( 'mkdir -p ' . escapeshellarg( $target_path ) ) . ' 2>&1', $mkdir_out, $mkdir_rc );
+		if ( $mkdir_rc !== 0 ) {
+			wp_send_json_error(
+				sprintf(
+					/* translators: %s: path */
+					__( 'Could not create target folder: %s', 'super-duper-easy-migration' ),
+					$target_path
+				)
+			);
+		}
+
+		// Check wp-config.php on chosen path
+		$wpconfig_check = [];
+		exec(
+			$ssh_base . ' ' . escapeshellarg( 'test -f ' . escapeshellarg( $target_path ) . 'wp-config.php && echo SDEM_WPCONFIG_OK || echo SDEM_WPCONFIG_MISSING' ) . ' 2>&1',
+			$wpconfig_check
+		);
+		$has_wpconfig = strpos( implode( '', $wpconfig_check ), 'SDEM_WPCONFIG_OK' ) !== false;
+
+		// Optional manual DB fields (used when target has no wp-config.php)
 		$manual_db = [];
 		if ( ! empty( $_POST['manual_db_name'] ) ) {
 			$manual_db = [
@@ -695,7 +761,6 @@ class Super_Duper_Easy_Migration {
 		}
 
 		$source_info = $this->get_source_info();
-		$target_path = self::build_target_path( $user, $app );
 
 		$job_id = 'sdem_' . time() . '_' . substr( md5( wp_generate_password( 12, false ) ), 0, 6 );
 
@@ -708,7 +773,6 @@ class Super_Duper_Easy_Migration {
 				'host'      => $host,
 				'ssh_user'  => $user,
 				'ssh_pass'  => $pass,
-				'app_name'  => $app,
 				'path'      => $target_path,
 				'manual_db' => $manual_db,
 			],
@@ -736,7 +800,6 @@ class Super_Duper_Easy_Migration {
 				'source_url'  => $source_info['site_url'],
 				'source_path' => $source_info['source_path'],
 				'target_path' => $target_path,
-				'target_app'  => $app,
 			],
 			'log' => [ [
 				'time'    => current_time( 'H:i:s' ),
